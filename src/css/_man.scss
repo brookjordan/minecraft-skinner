@@ -1,0 +1,187 @@
+@-webkit-keyframes rightArmSwing {
+  from {
+    -webkit-transform: rotateX(0deg);
+    transform: rotateX(0deg);
+  }
+
+  25% {
+    -webkit-transform: rotateX(60deg);
+    transform: rotateX(60deg);
+  }
+
+  50% {
+    -webkit-transform: rotateX(0deg);
+    transform: rotateX(0deg);
+  }
+
+  75% {
+    -webkit-transform: rotateX(-60deg);
+    transform: rotateX(-60deg);
+  }
+
+  to {
+    -webkit-transform: rotateX(0deg);
+    transform: rotateX(0deg);
+  }
+}
+
+@-webkit-keyframes leftArmSwing {
+  from {
+    -webkit-transform: rotateX(0deg);
+    transform: rotateX(0deg);
+  }
+
+  25% {
+    -webkit-transform: rotateX(-60deg);
+    transform: rotateX(-60deg);
+  }
+
+  50% {
+    -webkit-transform: rotateX(0deg);
+    transform: rotateX(0deg);
+  }
+
+  75% {
+    -webkit-transform: rotateX(60deg);
+    transform: rotateX(60deg);
+  }
+
+  to {
+    -webkit-transform: rotateX(0deg);
+    transform: rotateX(0deg);
+  }
+}
+
+
+
+man, part, joint {
+	display: block;
+}
+
+html {
+	width: 100%;
+	height: 100%;
+	-webkit-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+}
+body {
+	width: 100%;
+	height: 100%;
+
+	margin: 0;
+
+	-webkit-perspective: 200px;
+	perspective: 400px;
+}
+* {
+	-webkit-backface-visibility: inherit;
+	backface-visibility: inherit;
+	-webkit-transform-style: inherit;
+	transform-style: inherit;
+}
+
+.manContainer {
+	float: left;
+
+	width: 160px;
+	height: 320px;
+}
+
+man {
+	width: 160px;
+	height: 320px;
+
+	-webkit-transform-origin: 0px 130px 0px;
+	transform-origin: 100px 200px 0px;
+
+	-webkit-backface-visibility: visible;
+	backface-visibility: visible;
+}
+
+part {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: rotateX(45deg);
+}
+
+part * {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+joint {
+	width: 0;
+	height: 0;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+}
+
+.walking joint {
+	-webkit-animation-duration: .8s;
+}
+.running joint {
+	-webkit-animation-duration: .5s;
+}
+
+.walking .rightarm joint,
+.walking .leftleg joint {
+	-webkit-animation-name: rightArmSwing;
+}
+.walking .leftarm joint,
+.walking .rightleg joint {
+	-webkit-animation-name: leftArmSwing;
+}
+
+.running .rightarm joint,
+.running .leftleg joint {
+	-webkit-animation-name: leftArmSwing;
+}
+.running .leftarm joint,
+.running .rightleg joint {
+	-webkit-animation-name: rightArmSwing;
+}
+
+
+
+.manip {
+	position: absolute;
+	z-index: 100;
+
+	bottom: 10px;
+	right: 10px;
+	width: 150px;
+	height: 150px;
+}
+
+.up, .down, .left, .right, .func {
+	position: absolute;
+	width: 33.3333%;
+	height: 33.3333%;
+	border-radius: 50%;
+
+	background: #CCC;
+}
+
+.up {
+	top: 0;
+	left: 33.3333%;
+}
+.down {
+	bottom: 0;
+	left: 33.3333%;
+}
+.left {
+	top: 33.3333%;
+	left: 0;
+}
+.right {
+	top: 33.3333%;
+	right: 0;
+}
+
+.func {
+	top: 33.3333%;
+	left: 33.3333%;
+}

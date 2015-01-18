@@ -1,0 +1,23 @@
+#canvas {
+	display: block;
+	box-shadow:0 1px 4px black;
+	cursor: default;
+
+	margin: 20px auto;
+
+	&.drawing {
+		cursor: none;
+	}
+}
+
+.artboardContainer {
+	position: relative;
+	height: 320px;
+
+	//background: rgba(0,0,0,0.3);
+}
+
+#imageThumbs {
+	float: left;
+	width: 100px;
+}

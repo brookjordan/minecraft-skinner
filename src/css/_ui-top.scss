@@ -1,0 +1,317 @@
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Open Sans Light'), local('OpenSans-Light'), url(http://fonts.gstatic.com/s/opensans/v9/DXI1ORHCpsQm3Vp6mXoaTRampu5_7CjHW5spxoeN3Vs.woff2) format('woff2'), url(http://fonts.gstatic.com/s/opensans/v9/DXI1ORHCpsQm3Vp6mXoaTaRDOzjiPcYnFooOUGCOsRk.woff) format('woff');
+}
+
+* {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+body, html {
+  margin: 0;
+  height: 100%;
+}
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: .85em;
+}
+button {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+}
+
+
+
+
+
+
+
+.toggler {
+  background-color: #AAA;
+  cursor: pointer;
+}
+.menu-tools__toggler {
+  background-size: 300px 20px;
+  background-position: 0 0;
+}
+.menu-tools__toggler {
+  .menu-tools--closed & {
+    background-image: url('http://brookjordan.uk/minecraftskinner/i/horizontalToggleShow.svg');
+  }
+  .menu-tools--open & {
+    background-image: url('http://brookjordan.uk/minecraftskinner/i/horizontalToggleHide.svg');
+  }
+}
+
+
+
+
+
+
+
+.menu-tools__options__item__display__slider {
+  position: relative;
+  top: 50%;
+  float: right;
+
+  width: 104px;
+  height: 0;
+  margin: 0 30px 0 20px;
+}
+.BJSlider__bar {
+  width: 100%;
+  height: 4px;
+  margin-top: -2px;
+
+  border-radius: 2px;
+
+  background-color: #222;
+}
+.BJSlider__knob {
+  display: block;
+  position: relative;
+  left: 0%;
+
+  width: 40px;
+  height: 37px;
+  margin-top: -20px;
+  margin-left: -20px;
+
+  border-radius: 3px;
+  box-shadow: 0 3px 0 rgba(0,0,0,.5);
+  background-color: #DDD;
+
+  cursor: pointer;
+  cursor: ew-resize;
+  outline: none;
+}
+
+
+
+.workarea {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+
+
+.menu-tools {
+  position: relative;
+  left: 0;
+  top: 0;
+  z-index: 1;
+
+  width: 100%;
+
+  padding-bottom: 20px;
+  padding-left: 76px;
+
+  background-color: #333;
+  color: white;
+
+  overflow: hidden;
+  transition: max-height .2s;
+
+  &--closed .menu-tools {
+    max-height: 0;
+  }
+  &--open .menu-tools {
+    max-height: 150px;
+  }
+
+  &__preview {
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    width: 76px;
+    height: 100px;
+  }
+
+  &__preview__display {
+    height: 76px;
+
+    background-color: white;
+  }
+
+  &__preview__title {
+    height: 24px;
+    line-height: 24px;
+
+    text-transform: uppercase;
+    text-align: center;
+
+    background-color: #444;
+  }
+}
+
+.menu-tools__optionsWrapper {
+  position: relative;
+  z-index: 0;
+
+  width: 100%;
+
+  &::before,
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+
+    z-index: 100;
+    top: 0;
+
+    height: 100%;
+    width: 30px;
+
+    pointer-events:none;
+  }
+  &::before {
+    left: 0;
+    background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, .4), rgba(80, 80, 80, 0));
+    background-image: -moz-linear-gradient(left, rgba(0, 0, 0, .4), rgba(80, 80, 80, 0));
+    background-image: linear-gradient(to right, rgba(0, 0, 0, .4), rgba(80, 80, 80, 0));
+  }
+  &::after {
+    right: 0;
+    background-image: -webkit-linear-gradient(right, rgba(0, 0, 0, .4), rgba(80, 80, 80, 0));
+    background-image: -moz-linear-gradient(right, rgba(0, 0, 0, .4), rgba(80, 80, 80, 0));
+    background-image: linear-gradient(to left, rgba(0, 0, 0, .4), rgba(80, 80, 80, 0));
+  }
+  &.atStart::before,
+  &.atEnd::after {
+    background-image: none;
+  }
+}
+
+.menu-tools__optionsContainer {
+  position: relative;
+  z-index: 0;
+
+  width: 100%;
+
+  overflow: auto;
+}
+
+.menu-tools__options {
+  width: 766px;
+  height: 100px;
+
+  &__option {
+    float: left;
+
+    height: 100px;
+
+    &:nth-child(2n) .menu-tools__options__item__display {
+      background: #555;
+    }
+    &:nth-child(2n-1) .menu-tools__options__item__title {
+      background: #333;
+    }
+  }
+
+  &__item__display {
+    height: 76px;
+
+    background: #666;
+  }
+  &__item__display__icon {
+    float: left;
+    width: 76px;
+    height: 76px;
+
+    background: transparent no-repeat 10px 10px;
+    background-size: 56px 56px;
+  }
+  &__item__display__colourPicker {
+    float: left;
+
+    width: 56px;
+    height: 56px;
+    border: none;
+    padding: 0;
+    margin: 10px;
+
+    background: none;
+    outline: none;
+
+    cursor: pointer;
+  }
+
+
+  &__item__title {
+    height: 24px;
+    line-height: 24px;
+    padding: 0 10px;
+
+    background: #222;
+  }
+
+}
+
+
+.menu-tools__options__item__title{
+  &__name {
+    float: left;
+    text-transform: uppercase;
+  }
+  &__value {
+    float: right;
+    text-transform: uppercase;
+    width: 80px;
+  }
+}
+
+.value {
+  &__number {
+    display: inline-block;
+    width: 50px;
+    text-align: right;
+  }
+
+  &__unit {
+    display: inline-block;
+    width: 15px;
+    text-align: left;
+  }
+}
+
+.menu-tools__toggler {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+  height: 20px;
+}
+
+
+
+
+.menu-tools__options__option{
+  &-color {
+    width: 76px;
+  }
+
+  &-size,
+  &-opacity,
+  &-maxSpacing {
+    width: 230px;
+  }
+}
+
+.menu-tools__options__item__display__icon {
+  .menu-tools__options__option-size & {
+    background-image: url("http://brookjordan.uk/minecraftskinner/i/size.svg");
+  }
+  .menu-tools__options__option-opacity & {
+    background-image: url("http://brookjordan.uk/minecraftskinner/i/opacity.svg");
+  }
+  .menu-tools__options__option-maxSpacing & {
+    background-image: url("http://brookjordan.uk/minecraftskinner/i/maxSpacing.svg");
+  }
+}

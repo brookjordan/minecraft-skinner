@@ -1,0 +1,41 @@
+#dropBox {
+	box-sizing: border-box;
+
+	width: 200px;
+	height: 200px;
+	border: 1px dotted black;
+	clear: both;
+}
+#dropBox:after {
+	content: 'Drag image';
+}
+
+#dropOverlay {
+	position: fixed;
+
+	top: 50%;
+	left: 50%;
+	height: 0%;
+	width: 0%;
+
+	background-color: rgba(0,0,0,0.8);
+	transition: .1s;
+}
+#dropOverlay.hover:after {
+	font-family: sans-serif;
+	font-size: 3em;
+	display: block;
+	margin: 0 auto;
+	line-height: 200px;
+	content: 'Drop image';
+	color: white;
+	text-align: center;
+}
+#dropOverlay.hover {
+	top: 0%;
+	left: 0%;
+	height: 100%;
+	width: 100%;
+
+	background-color: rgba(0,0,0,0.8);
+}

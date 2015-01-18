@@ -1,0 +1,10 @@
+body, html {
+	min-height: 100%;
+}
+
+.cf:before,
+.cf:after {
+	content: '';
+	clear: both;
+	display: table;
+}
