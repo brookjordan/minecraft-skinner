@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Drawing</title>
+
+	<link rel="stylesheet" href="css/main.min.css">
+</head>
+<body>
+	<div class="workarea">
+		<div id="menu-tools" class="menu-tools">
+
+			<div class="menu-tools__optionsWrapper">
+				<div class="menu-tools__optionsContainer">
+					<div class="menu-tools__options">
+						<div class="menu-tools__options__option menu-tools__options__option-color">
+							<div class="menu-tools__options__item__display">
+								<input type="color" id="brushColor" class="menu-tools__options__item__display__colourPicker" />
+							</div>
+							<div class="menu-tools__options__item__title">
+								<span class="menu-tools__options__item__title__name">Colour</span>
+							</div>
+						</div>
+
+						<div class="menu-tools__options__option menu-tools__options__option-size">
+							<div class="menu-tools__options__item__display">
+								<div class="menu-tools__options__item__display__icon"></div>
+
+								<div class="menu-tools__options__item__display__slider BJSlider"
+										 data-id="size"
+										 data-value="3"
+										 data-min="1"
+										 data-max="50"
+										 data-step="1"></div>
+							</div>
+							<div class="menu-tools__options__item__title">
+								<span class="menu-tools__options__item__title__name">Size</span>
+								<span class="menu-tools__options__item__title__value">
+									<span class="value__number">3</span>
+									<span class="value__unit">px</span>
+								</span>
+							</div>
+						</div>
+
+						<div class="menu-tools__options__option menu-tools__options__option-opacity">
+							<div class="menu-tools__options__item__display">
+								<div class="menu-tools__options__item__display__icon"></div>
+
+								<div class="menu-tools__options__item__display__slider BJSlider"
+										 data-id="opacity"
+										 data-value="100"
+										 data-min="0"
+										 data-max="100"
+										 data-step="1"></div>
+							</div>
+							<div class="menu-tools__options__item__title">
+								<span class="menu-tools__options__item__title__name">Opacity</span>
+								<span class="menu-tools__options__item__title__value">
+									<span class="value__number">100</span>
+									<span class="value__unit">%</span>
+								</span>
+							</div>
+						</div>
+
+						<div class="menu-tools__options__option menu-tools__options__option-maxSpacing">
+							<div class="menu-tools__options__item__display">
+								<div class="menu-tools__options__item__display__icon"></div>
+
+								<div class="menu-tools__options__item__display__slider BJSlider"
+										 data-id="maxSpacing"
+										 data-value="25"
+										 data-min="1"
+										 data-max="100"
+										 data-step="1"></div>
+							</div>
+							<div class="menu-tools__options__item__title">
+								<span class="menu-tools__options__item__title__name">Max spacing</span>
+								<span class="menu-tools__options__item__title__value">
+									<span class="value__number">25</span>
+									<span class="value__unit">%</span>
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="menu-tools__preview">
+				<div class="menu-tools__preview__display"></div>
+				<div class="menu-tools__preview__title">Preview</div>
+			</div>
+
+			<div class="toggler menu-tools__toggler"></div>
+		</div>
+
+
+
+		<!-- Draw -->
+		<div class="draw cf">
+
+			<div id="imageThumbs" class="images cf"></div>
+
+			<div class="artboardContainer cf">
+				<canvas id="canvas"></canvas>
+			</div>
+			<canvas id="canvas_default"></canvas>
+
+		</div>
+
+		<button onclick="artBoard.getImage()">Save</button>
+		<!-- END - Draw -->
+
+
+
+
+		<!-- Drop -->
+		<div id="dropOverlay">
+		</div>
+		<!-- END - Drop -->
+
+
+
+
+		<!-- Man -->
+		<div class="manContainer">
+			<man src="Minecraft-Skin.png">
+				<part class="head"     width="8" height="8"  depth="8"></part>
+				<part class="torso"    width="8" height="12" depth="4"></part>
+
+				<part class="rightarm" width="4" height="12" depth="4"></part>
+				<part class="leftarm"  width="4" height="12" depth="4"></part>
+
+				<part class="rightleg" width="4" height="12" depth="4"></part>
+				<part class="leftleg"  width="4" height="12" depth="4"></part>
+			</man>
+		</div>
+
+		<div class="manip">
+			<div class="up"></div>
+			<div class="down"></div>
+			<div class="left"></div>
+			<div class="right"></div>
+			<div class="func"></div>
+		</div>
+		<!-- END - Man -->
+
+	</div>
+
+
+
+
+
+	<script src="js/main.min.js"></script>
+	<script>
+		artBoard.ondrawend(function(){
+			imageElt = artBoard.art;
+			buildMen();
+		});
+	</script>
+
+</body>
+</html>

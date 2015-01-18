@@ -2,9 +2,9 @@
 ############
 build/**/*
 temp/**/*
-*.html
 
-site/**/*
+site/**/*.js*
+site/**/*.css*
 
 node_modules/**/*
 .sass-cache/**/*
