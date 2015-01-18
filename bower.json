@@ -1,0 +1,32 @@
+{
+  "name": "brkjrdn-minecraftskinner",
+  "version": "0.1.0",
+  "homepage": "https://github.com/brookjordan/minecraft-skinner",
+  "authors": [
+    "brookjordan"
+  ],
+  "description": "Canvas-based browser painter for creating Minecraft skins.",
+  "main": "site/index.html",
+  "keywords": [
+    "brook",
+    "jordan",
+    "brookjordan",
+    "brk",
+    "brkjrdn",
+    "minecraft",
+    "skinner",
+    "minecraftskinner"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "build/**/*",
+    "temp/**/*",
+    "site/**/*.js",
+    "site/**/*.css"
+  ]
+}
